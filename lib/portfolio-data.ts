@@ -2,25 +2,11 @@ export const profile = {
   name: "Sai Jayanth Rajamahendram",
   title: "Software Engineer specializing in .NET, Healthcare Systems, Cloud Infrastructure, and DevOps Automation",
   subtitle:
-    "Backend engineer with healthcare production experience, cloud infrastructure projects, and hands-on DevOps automation across .NET, AWS, Azure, Kubernetes, Terraform, and CI/CD.",
+    "I build, deploy, automate, and support backend systems across healthcare and cloud-native environments using .NET, AWS, Azure, Terraform, Kubernetes, and CI/CD.",
   location: "Chicago, IL",
   email: "saijayanth41@gmail.com",
   github: "https://github.com/saijayanth41",
-  linkedin: "https://www.linkedin.com/in/saijayanthr/",
-  fit: [
-    {
-      label: "Core role fit",
-      value: "Backend · Cloud · DevOps"
-    },
-    {
-      label: "Domain strength",
-      value: "Healthcare systems"
-    },
-    {
-      label: "Production exposure",
-      value: "CI/CD · RCA · SLA support"
-    }
-  ]
+  linkedin: "https://www.linkedin.com/in/saijayanthr/"
 };
 
 export const navItems = [
@@ -69,71 +55,83 @@ export const projects = [
   {
     name: "Auto-Triage One",
     href: "https://github.com/saijayanth41/Auto-Triage-One",
-    label: "Splunk Incident Automation",
+    label: "Featured · Incident Automation",
+    featured: true,
+    problem: "Splunk alerts often stop at notification. This add-on turns alerts into actionable incident tickets across Jira, ServiceNow, Freshservice, or custom APIs.",
     description:
-      "Splunk Technology Add-On that turns alerts into incident tickets across Jira, ServiceNow, Freshservice, or custom APIs without locking teams into one ITSM platform.",
+      "A vendor-agnostic Splunk Technology Add-On with modular alert actions, setup UI, API configuration, retry controls, and operational logging.",
     stack: ["Splunk", "Python", "REST APIs", "JavaScript", "HTML", "CSS"],
-    highlights: [
-      "Designed modular alert actions with retry, throttle, and logging behavior for operational reliability.",
-      "Built setup UI, API integration flow, and Splunk Cloud-compatible packaging."
+    challenges: [
+      "Built alert action flows that handle API failures, throttling, retries, and audit-friendly logs.",
+      "Packaged the add-on for Splunk Cloud compatibility with a clean setup experience."
     ]
   },
   {
     name: "Amazon EKS Infrastructure Automation",
     href: "https://github.com/saijayanth41/Amazon-EKS-Infrastructure-Automation",
-    label: "Cloud Infrastructure",
+    label: "Featured · Cloud Infrastructure",
+    featured: true,
+    problem: "Manual Kubernetes setup is slow and error-prone. This project provisions repeatable AWS EKS infrastructure with Terraform.",
     description:
-      "Terraform-based AWS EKS environment covering networking, Kubernetes compute, autoscaling, service exposure, and deployment manifests.",
+      "Infrastructure automation for VPC, EKS cluster, node groups, IAM roles, autoscaling, load balancing, Helm workflows, and Kubernetes manifests.",
     stack: ["AWS", "Terraform", "Kubernetes", "Docker", "Helm"],
-    highlights: [
-      "Provisioned VPC, EKS cluster, node groups, IAM roles, and load balancing resources.",
-      "Configured HPA, Metrics Server, Helm workflows, and Kubernetes manifests."
+    challenges: [
+      "Designed a reproducible infrastructure path from networking to service exposure.",
+      "Configured HPA, Metrics Server, load balancing, and deployment manifests for production-style operations."
     ]
   },
   {
     name: "Clinical Note Summarizer",
     href: "https://github.com/saijayanth41/Clinical-Note-Summarizer",
-    label: "Healthcare AI",
+    label: "Featured · Healthcare AI",
+    featured: true,
+    problem: "Clinical notes are dense and inconsistent. This API converts unstructured notes into predictable summaries for review workflows.",
     description:
-      "FastAPI service that uses Claude API to convert clinical note text into structured healthcare summaries suitable for downstream review workflows.",
-    stack: ["Python", "FastAPI", "Claude API"],
-    highlights: [
-      "Enforced structured JSON output for consistent API responses.",
-      "Tested prompt and schema behavior across varied clinical note samples."
+      "FastAPI service using Claude API, schema-constrained JSON output, and prompt patterns tested against varied clinical note samples.",
+    stack: ["Python", "FastAPI", "Claude API", "JSON Schema"],
+    challenges: [
+      "Enforced structured responses so downstream systems receive consistent fields.",
+      "Separated API concerns from prompt logic to keep the service testable and maintainable."
     ]
   },
   {
     name: "Instagram Analytics Platform",
     href: "https://github.com/saijayanth41/Instagram-Analytics-Platform",
     label: "Streaming Analytics",
+    featured: false,
+    problem: "Profile analysis needs fresh data and fast dashboard updates.",
     description:
-      "Event-driven analytics platform that streams profile data through Kafka and serves live dashboard updates over WebSockets.",
+      "Event-driven analytics pipeline that streams scraped profile data through Kafka and serves live dashboard updates over WebSockets.",
     stack: ["Kafka", "FastAPI", "React", "MongoDB", "DynamoDB", "Apify"],
-    highlights: [
-      "Built a scraping-to-streaming pipeline for profile analysis workflows.",
-      "Separated ingestion, persistence, and dashboard delivery across API and data stores."
+    challenges: [
+      "Separated ingestion, persistence, and dashboard delivery across API and data stores.",
+      "Used streaming patterns to keep the UI updated without manual refreshes."
     ]
   },
   {
     name: "Serverless URL Monitoring System",
     href: "https://github.com/saijayanth41/Serverless-URL-Monitoring-System",
     label: "Serverless Monitoring",
+    featured: false,
+    problem: "Uptime checks should run continuously without maintaining a server.",
     description:
-      "AWS-native uptime monitor that schedules URL checks and sends alerts without maintaining servers.",
+      "AWS-native uptime monitor using Lambda, EventBridge, SNS, and CloudWatch for scheduled URL checks and alerts.",
     stack: ["AWS Lambda", "EventBridge", "SNS", "CloudWatch"],
-    highlights: [
+    challenges: [
       "Scheduled checks with EventBridge and Lambda.",
-      "Centralized alerts and observability through SNS and CloudWatch."
+      "Centralized alerts and operational visibility through SNS and CloudWatch."
     ]
   },
   {
     name: "GitHub-to-Slack Commit Notifier",
     href: "https://github.com/saijayanth41/GitHub-to-Slack-Commit-Notifier",
     label: "Webhook Automation",
+    featured: false,
+    problem: "Engineering teams need lightweight visibility into repository activity.",
     description:
       "Flask webhook service that receives GitHub commit events, validates payloads, and posts concise updates into Slack.",
     stack: ["Python", "Flask", "GitHub Webhooks", "Slack Webhooks"],
-    highlights: [
+    challenges: [
       "Processed event payloads from GitHub webhooks.",
       "Delivered real-time engineering notifications to Slack channels."
     ]
@@ -142,10 +140,12 @@ export const projects = [
     name: "Jenkins Docker CI/CD Automation",
     href: "https://github.com/saijayanth41/Jenkins-Docker-CICD-Automation",
     label: "CI/CD Automation",
+    featured: false,
+    problem: "Deployments need repeatable build, container, and health-check steps.",
     description:
-      "Jenkins and Docker deployment pipeline with automated builds, container runtime checks, service health validation, and recovery logic.",
+      "Jenkins and Docker pipeline with automated builds, container runtime checks, service health validation, alerts, and recovery logic.",
     stack: ["Jenkins", "Docker", "Bash", "GitHub"],
-    highlights: [
+    challenges: [
       "Used SCM triggers, Docker-in-Docker, and scripted deployment steps.",
       "Added HTTP health checks, email alerts, and auto-restart monitoring."
     ]

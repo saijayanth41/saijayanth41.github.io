@@ -10,9 +10,9 @@ type SectionProps = {
 
 export function Section({ id, eyebrow, title, description, children }: SectionProps) {
   return (
-    <section id={id} className="scroll-mt-24 border-t border-line py-20 sm:py-24">
+    <section id={id} className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">
-        <div className="mb-10 max-w-3xl">
+        <div className="mb-12 max-w-3xl">
           <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-cyan-300">{eyebrow}</p>
           <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h2>
           {description ? <p className="mt-4 text-base leading-8 text-slate-400">{description}</p> : null}
@@ -25,7 +25,7 @@ export function Section({ id, eyebrow, title, description, children }: SectionPr
 
 export function Tag({ children }: { children: ReactNode }) {
   return (
-    <span className="rounded-full border border-slate-700/80 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-300">
+    <span className="rounded-full border border-slate-800 bg-ink-950/65 px-3 py-1 text-xs font-medium text-slate-300">
       {children}
     </span>
   );
@@ -33,7 +33,7 @@ export function Tag({ children }: { children: ReactNode }) {
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <article className={`rounded-2xl border border-line bg-white/[0.035] p-6 shadow-glow backdrop-blur ${className}`}>
+    <article className={`rounded-2xl border border-white/10 bg-white/[0.035] p-6 shadow-glow backdrop-blur ${className}`}>
       {children}
     </article>
   );
