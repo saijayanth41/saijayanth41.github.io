@@ -4,6 +4,7 @@ import {
   AboutSection,
   CertificationsSection,
   ContactSection,
+  EducationSection,
   ExperienceSection,
   OpenSourceSection,
   ProjectsSection,
@@ -22,6 +23,7 @@ export default function Home() {
         <ProjectsSection />
         <SkillsSection />
         <CertificationsSection />
+        <EducationSection />
         <OpenSourceSection />
         <ResumeSection />
         <ContactSection />
