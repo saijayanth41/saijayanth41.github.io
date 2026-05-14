@@ -364,7 +364,7 @@ export function ContactSection() {
           <ContactLink label="Email" value={profile.email} href={"mailto:" + profile.email} icon={Mail} />
           <ContactLink label="LinkedIn" value="linkedin.com/in/saijayanthr" href={profile.linkedin} icon={ExternalLink} />
           <ContactLink label="GitHub" value="github.com/saijayanth41" href={profile.github} icon={ExternalLink} />
-          <ContactLink label="Location" value={profile.location} href="#" icon={MapPin} />
+          <ContactLink label="Location" value={`${profile.location} · Open to relocate`} href="#" icon={MapPin} />
         </div>
       </Card>
     </Section>
