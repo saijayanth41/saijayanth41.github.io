@@ -164,7 +164,7 @@ export function ResumeSection() {
     >
       <div className="flex flex-wrap gap-3">
         <a
-          href="/Sai_Jayanth_Rajamahendram_Resume.pdf"
+          href="/SaiJayanth_Resume.pdf"
           className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink-950 transition hover:bg-cyan-100"
         >
           Download Resume
@@ -192,7 +192,7 @@ export function ContactSection() {
         </div>
         <div className="grid gap-3">
           <ContactLink label="Email" value={profile.email} href={`mailto:${profile.email}`} />
-          <ContactLink label="LinkedIn" value="linkedin.com/in/saijayan" href={profile.linkedin} />
+          <ContactLink label="LinkedIn" value="linkedin.com/in/saijayanthr" href={profile.linkedin} />
           <ContactLink label="GitHub" value="github.com/saijayanth41" href={profile.github} />
           <ContactLink label="Location" value={profile.location} href="#" />
         </div>

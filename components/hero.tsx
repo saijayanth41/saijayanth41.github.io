@@ -4,7 +4,7 @@ import { ArrowIcon, ExternalIcon } from "@/components/ui";
 const heroLinks = [
   { label: "GitHub", href: profile.github },
   { label: "LinkedIn", href: profile.linkedin },
-  { label: "Email", href: `mailto:${profile.email}` }
+  { label: "Email", href: `mailto:${profile.email}` },
 ];
 
 export function Hero() {
@@ -23,8 +23,12 @@ export function Hero() {
           <h1 className="max-w-4xl font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
             {profile.name}
           </h1>
-          <p className="mt-5 text-xl font-medium text-cyan-200">{profile.title}</p>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">{profile.subtitle}</p>
+          <p className="mt-5 text-xl font-medium text-cyan-200">
+            {profile.title}
+          </p>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+            {profile.subtitle}
+          </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -35,7 +39,7 @@ export function Hero() {
               <ArrowIcon />
             </a>
             <a
-              href="/Sai_Jayanth_Rajamahendram_Resume.pdf"
+              href="/SaiJayanth_Resume.pdf"
               className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-5 py-3 text-sm font-semibold text-white transition hover:border-cyan-400/50 hover:bg-slate-800"
             >
               Download Resume
@@ -66,27 +70,42 @@ export function Hero() {
 
         <div className="rounded-3xl border border-line bg-ink-900/70 p-5 shadow-glow backdrop-blur">
           <div className="rounded-2xl border border-line bg-ink-950 p-6">
-            <p className="font-mono text-xs uppercase tracking-[0.22em] text-cyan-300">Role alignment</p>
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-cyan-300">
+              Role alignment
+            </p>
             <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-white">
               Production backend work with cloud delivery depth.
             </h2>
             <p className="mt-4 leading-7 text-slate-400">
-              Positioned for teams that need API engineering, infrastructure automation, release support, and healthcare
-              domain context in the same engineer.
+              Positioned for teams that need API engineering, infrastructure
+              automation, release support, and healthcare domain context in the
+              same engineer.
             </p>
             <div className="mt-6 grid gap-3">
               {profile.fit.map((item) => (
-                <div key={item.label} className="rounded-2xl border border-line bg-white/[0.035] px-4 py-3">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500">{item.label}</p>
-                  <p className="mt-1 font-display text-lg font-semibold text-white">{item.value}</p>
+                <div
+                  key={item.label}
+                  className="rounded-2xl border border-line bg-white/[0.035] px-4 py-3"
+                >
+                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                    {item.label}
+                  </p>
+                  <p className="mt-1 font-display text-lg font-semibold text-white">
+                    {item.value}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
           <div className="grid gap-3 pt-4 sm:grid-cols-3">
             {[".NET APIs", "AWS/Azure", "K8s/Terraform"].map((item) => (
-              <div key={item} className="rounded-2xl border border-line bg-white/[0.035] px-4 py-3">
-                <p className="font-display text-lg font-semibold text-white">{item}</p>
+              <div
+                key={item}
+                className="rounded-2xl border border-line bg-white/[0.035] px-4 py-3"
+              >
+                <p className="font-display text-lg font-semibold text-white">
+                  {item}
+                </p>
                 <p className="mt-1 text-xs text-slate-500">Primary signal</p>
               </div>
             ))}

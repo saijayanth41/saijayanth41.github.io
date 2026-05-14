@@ -6,7 +6,7 @@ export const profile = {
   location: "Chicago, IL",
   email: "saijayanth41@gmail.com",
   github: "https://github.com/saijayanth41",
-  linkedin: "https://linkedin.com/in/saijayan",
+  linkedin: "https://www.linkedin.com/in/saijayanthr/",
   fit: [
     {
       label: "Core role fit",
@@ -36,6 +36,17 @@ export const navItems = [
 
 export const experience = [
   {
+    company: "Community Dreams Foundation",
+    role: "Software Engineer",
+    context: "Nonprofit learning platforms",
+    bullets: [
+      "Build full-stack learning platform features with production-oriented frontend and backend workflows.",
+      "Develop backend APIs and maintain application logic for nonprofit education use cases.",
+      "Use cloud, automation, and AI-assisted development workflows to speed delivery without sacrificing maintainability."
+    ],
+    stack: ["React", "Backend APIs", "Cloud", "Automation", "AI-assisted workflows"]
+  },
+  {
     company: "Cognizant Technology Solutions",
     role: "Software Engineer",
     context: "Molina Healthcare | Medicare & Medicaid Systems",
@@ -48,17 +59,6 @@ export const experience = [
       "Resolved SLA-driven production defects through root-cause analysis, IIS deployment troubleshooting, and code-quality checks with SonarQube."
     ],
     stack: [".NET Core", "C#", "SQL Server", "Azure DevOps", "IIS", "SonarQube", "REST APIs"]
-  },
-  {
-    company: "Community Dreams Foundation",
-    role: "Software Engineer",
-    context: "Nonprofit learning platforms",
-    bullets: [
-      "Build full-stack learning platform features with production-oriented frontend and backend workflows.",
-      "Develop backend APIs and maintain application logic for nonprofit education use cases.",
-      "Use cloud, automation, and AI-assisted development workflows to speed delivery without sacrificing maintainability."
-    ],
-    stack: ["React", "Backend APIs", "Cloud", "Automation", "AI-assisted workflows"]
   }
 ];
 
