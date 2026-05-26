@@ -3,7 +3,7 @@ export const profile = {
   title: "Software Engineer specializing in .NET, Healthcare Systems, Cloud Infrastructure, and DevOps Automation",
   subtitle:
     "I build, deploy, automate, and support backend systems across healthcare and cloud-native environments using .NET, AWS, Azure, Terraform, Kubernetes, and CI/CD.",
-  location: "Chicago, IL",
+  location: "United States",
   email: "saijayanth41@gmail.com",
   github: "https://github.com/saijayanth41",
   linkedin: "https://www.linkedin.com/in/saijayanthr/"
