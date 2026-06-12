@@ -54,7 +54,7 @@ export const experience = [
 export const projects = [
   {
     name: "Auto-Triage One",
-    href: "https://github.com/saijayanth41/Auto-Triage-One",
+    href: "https://github.com/saijayanth41?tab=repositories",
     label: "Featured · Incident Automation",
     featured: true,
     problem: "Splunk alerts often stop at notification. This add-on turns alerts into actionable incident tickets across Jira, ServiceNow, Freshservice, or custom APIs.",
@@ -68,7 +68,7 @@ export const projects = [
   },
   {
     name: "Amazon EKS Infrastructure Automation",
-    href: "https://github.com/saijayanth41/Amazon-EKS-Infrastructure-Automation",
+    href: "https://github.com/saijayanth41?tab=repositories",
     label: "Featured · Cloud Infrastructure",
     featured: true,
     problem: "Manual Kubernetes setup is slow and error-prone. This project provisions repeatable AWS EKS infrastructure with Terraform.",
@@ -82,7 +82,7 @@ export const projects = [
   },
   {
     name: "Clinical Note Summarizer",
-    href: "https://github.com/saijayanth41/Clinical-Note-Summarizer",
+    href: "https://github.com/saijayanth41?tab=repositories",
     label: "Featured · Healthcare AI",
     featured: true,
     problem: "Clinical notes are dense and inconsistent. This API converts unstructured notes into predictable summaries for review workflows.",
@@ -96,7 +96,7 @@ export const projects = [
   },
   {
     name: "Instagram Analytics Platform",
-    href: "https://github.com/saijayanth41/Instagram-Analytics-Platform",
+    href: "https://github.com/saijayanth41?tab=repositories",
     label: "Streaming Analytics",
     featured: false,
     problem: "Profile analysis needs fresh data and fast dashboard updates.",
@@ -110,7 +110,7 @@ export const projects = [
   },
   {
     name: "Serverless URL Monitoring System",
-    href: "https://github.com/saijayanth41/Serverless-URL-Monitoring-System",
+    href: "https://github.com/saijayanth41?tab=repositories",
     label: "Serverless Monitoring",
     featured: false,
     problem: "Uptime checks should run continuously without maintaining a server.",
@@ -124,7 +124,7 @@ export const projects = [
   },
   {
     name: "GitHub-to-Slack Commit Notifier",
-    href: "https://github.com/saijayanth41/GitHub-to-Slack-Commit-Notifier",
+    href: "https://github.com/saijayanth41?tab=repositories",
     label: "Webhook Automation",
     featured: false,
     problem: "Engineering teams need lightweight visibility into repository activity.",
@@ -138,7 +138,7 @@ export const projects = [
   },
   {
     name: "AI Support Ticket Analytics Dashboard",
-    href: "https://github.com/saijayanth41/ai-support-ticket-analytics",
+    href: "https://github.com/saijayanth41?tab=repositories",
     label: "Data Analytics",
     featured: false,
     problem: "Support managers need a fast way to see which teams are missing SLAs, which tickets are at risk, and what to do next.",
@@ -152,7 +152,7 @@ export const projects = [
   },
   {
     name: "Jenkins Docker CI/CD Automation",
-    href: "https://github.com/saijayanth41/Jenkins-Docker-CICD-Automation",
+    href: "https://github.com/saijayanth41?tab=repositories",
     label: "CI/CD Automation",
     featured: false,
     problem: "Deployments need repeatable build, container, and health-check steps.",
