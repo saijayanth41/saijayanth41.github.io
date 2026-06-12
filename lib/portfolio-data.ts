@@ -23,6 +23,18 @@ export const navItems = [
 
 export const experience = [
   {
+    company: "Community Dreams Foundation",
+    role: "Software Engineer",
+    dates: "Jul 2025 – Present",
+    context: "Nonprofit learning platforms",
+    bullets: [
+      "Build full-stack learning platform features with production-oriented frontend and backend workflows.",
+      "Develop backend APIs and maintain application logic for nonprofit education use cases.",
+      "Use cloud, automation, and AI-assisted development workflows to speed delivery without sacrificing maintainability."
+    ],
+    stack: ["React", "Backend APIs", "Cloud", "Automation", "AI-assisted workflows"]
+  },
+  {
     company: "Cognizant Technology Solutions",
     role: "Software Engineer",
     dates: "Jul 2021 – Aug 2023",
@@ -36,18 +48,6 @@ export const experience = [
       "Resolved SLA-driven production defects through root-cause analysis, IIS deployment troubleshooting, and code-quality checks with SonarQube."
     ],
     stack: [".NET Core", "C#", "SQL Server", "Azure DevOps", "IIS", "SonarQube", "REST APIs"]
-  },
-  {
-    company: "Community Dreams Foundation",
-    role: "Software Engineer",
-    dates: "Jul 2025 – Present",
-    context: "Nonprofit learning platforms",
-    bullets: [
-      "Build full-stack learning platform features with production-oriented frontend and backend workflows.",
-      "Develop backend APIs and maintain application logic for nonprofit education use cases.",
-      "Use cloud, automation, and AI-assisted development workflows to speed delivery without sacrificing maintainability."
-    ],
-    stack: ["React", "Backend APIs", "Cloud", "Automation", "AI-assisted workflows"]
   }
 ];
 
@@ -134,6 +134,20 @@ export const projects = [
     challenges: [
       "Processed event payloads from GitHub webhooks.",
       "Delivered real-time engineering notifications to Slack channels."
+    ]
+  },
+  {
+    name: "AI Support Ticket Analytics Dashboard",
+    href: "https://github.com/saijayanth41/ai-support-ticket-analytics",
+    label: "Data Analytics",
+    featured: false,
+    problem: "Support managers need a fast way to see which teams are missing SLAs, which tickets are at risk, and what to do next.",
+    description:
+      "Streamlit analytics dashboard over a SQLite-backed pipeline with interactive KPI cards, Plotly visualizations, and four rule-based agents for risk scoring, root-cause analysis, recommendations, and executive summaries.",
+    stack: ["Python", "Streamlit", "Pandas", "Plotly", "SQLite"],
+    challenges: [
+      "Scored every ticket 0–100 with a weighted, explainable risk rubric used for triage.",
+      "Generated plain-English recommendations and an executive briefing from live KPI thresholds."
     ]
   },
   {

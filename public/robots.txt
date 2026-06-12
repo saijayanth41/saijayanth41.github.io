@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saijayanth41.github.io/sitemap.xml

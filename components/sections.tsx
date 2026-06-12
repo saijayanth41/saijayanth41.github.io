@@ -385,12 +385,18 @@ function ContactLink({
   icon: LucideIcon;
 }) {
   const isExternal = href.startsWith("http");
+  const isLink = href !== "#";
+  const Wrapper = isLink ? "a" : "div";
 
   return (
-    <a
-      href={href}
-      target={isExternal ? "_blank" : undefined}
-      rel={isExternal ? "noreferrer" : undefined}
+    <Wrapper
+      {...(isLink
+        ? {
+            href,
+            target: isExternal ? "_blank" : undefined,
+            rel: isExternal ? "noreferrer" : undefined
+          }
+        : {})}
       className="flex items-center justify-between gap-4 rounded-2xl bg-ink-950/60 px-4 py-3 ring-1 ring-white/10 transition hover:bg-cyan-400/5 hover:ring-cyan-400/30"
     >
       <span className="flex items-center gap-3">
@@ -402,7 +408,7 @@ function ContactLink({
           <span className="mt-1 block font-medium text-slate-200">{value}</span>
         </span>
       </span>
-      {href !== "#" ? <ExternalIcon /> : null}
-    </a>
+      {isLink ? <ExternalIcon /> : null}
+    </Wrapper>
   );
 }
