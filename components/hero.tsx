@@ -35,22 +35,34 @@ export function Hero() {
 
       <div className="relative mx-auto grid min-h-[calc(100vh-4rem)] w-full max-w-6xl items-center gap-12 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.04fr_0.96fr]">
         <div>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1.5 font-mono text-xs text-cyan-100 shadow-[0_0_28px_rgba(34,211,238,0.08)]">
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
+          <div className="animate-fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1.5 font-mono text-xs text-cyan-100 shadow-[0_0_28px_rgba(34,211,238,0.08)]">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan-300" />
+            </span>
             Backend systems · Cloud infrastructure · Production support
           </div>
 
-          <h1 className="max-w-4xl font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
+          <h1
+            className="animate-fade-up max-w-4xl font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl"
+            style={{ animationDelay: "0.08s" }}
+          >
             {profile.name}
           </h1>
-          <p className="mt-5 max-w-2xl text-xl font-medium leading-8 text-cyan-100">
+          <p
+            className="animate-fade-up mt-5 max-w-2xl text-xl font-medium leading-8 text-cyan-100"
+            style={{ animationDelay: "0.16s" }}
+          >
             {profile.title}
           </p>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+          <p
+            className="animate-fade-up mt-5 max-w-2xl text-lg leading-8 text-slate-300"
+            style={{ animationDelay: "0.24s" }}
+          >
             {profile.subtitle}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="animate-fade-up mt-8 flex flex-wrap gap-3" style={{ animationDelay: "0.32s" }}>
             <a
               href="#projects"
               className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink-950 transition duration-200 hover:-translate-y-0.5 hover:bg-cyan-100"
@@ -73,7 +85,7 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="animate-fade-up mt-8 flex flex-wrap gap-4" style={{ animationDelay: "0.4s" }}>
             {heroLinks.map((link) => (
               <a
                 key={link.label}
@@ -88,7 +100,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="animate-fade-up relative" style={{ animationDelay: "0.3s" }}>
           <div className="absolute -inset-6 rounded-[2rem] bg-cyan-400/10 blur-3xl" />
           <div className="relative grid gap-4">
             <div className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 shadow-glow backdrop-blur-xl">

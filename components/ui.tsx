@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Reveal } from "@/components/reveal";
 
 type SectionProps = {
   id: string;
@@ -12,12 +13,14 @@ export function Section({ id, eyebrow, title, description, children }: SectionPr
   return (
     <section id={id} className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">
-        <div className="mb-12 max-w-3xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-cyan-300">{eyebrow}</p>
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h2>
-          {description ? <p className="mt-4 text-base leading-8 text-slate-400">{description}</p> : null}
-        </div>
-        {children}
+        <Reveal>
+          <div className="mb-12 max-w-3xl">
+            <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-cyan-300">{eyebrow}</p>
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h2>
+            {description ? <p className="mt-4 text-base leading-8 text-slate-400">{description}</p> : null}
+          </div>
+        </Reveal>
+        <Reveal className="reveal-delay-1">{children}</Reveal>
       </div>
     </section>
   );
