@@ -1,21 +1,27 @@
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/reveal";
+import { Spotlight } from "@/components/spotlight";
 
 type SectionProps = {
   id: string;
+  index?: string;
   eyebrow: string;
   title: string;
   children: ReactNode;
   description?: string;
 };
 
-export function Section({ id, eyebrow, title, description, children }: SectionProps) {
+export function Section({ id, index, eyebrow, title, description, children }: SectionProps) {
   return (
     <section id={id} className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">
         <Reveal>
           <div className="mb-12 max-w-3xl">
-            <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-cyan-300">{eyebrow}</p>
+            <p className="mb-3 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-cyan-300">
+              {index ? <span className="text-slate-600">{index}</span> : null}
+              {eyebrow}
+              <span className="h-px w-16 bg-gradient-to-r from-cyan-400/50 to-transparent" />
+            </p>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h2>
             {description ? <p className="mt-4 text-base leading-8 text-slate-400">{description}</p> : null}
           </div>
@@ -28,7 +34,7 @@ export function Section({ id, eyebrow, title, description, children }: SectionPr
 
 export function Tag({ children }: { children: ReactNode }) {
   return (
-    <span className="rounded-full border border-slate-800 bg-ink-950/65 px-3 py-1 text-xs font-medium text-slate-300">
+    <span className="rounded-full border border-slate-800 bg-ink-950/65 px-3 py-1 text-xs font-medium text-slate-300 transition hover:border-cyan-400/40 hover:text-cyan-200">
       {children}
     </span>
   );
@@ -36,9 +42,12 @@ export function Tag({ children }: { children: ReactNode }) {
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <article className={`rounded-2xl border border-white/10 bg-white/[0.035] p-6 shadow-glow backdrop-blur ${className}`}>
+    <Spotlight
+      as="article"
+      className={`rounded-2xl border border-white/10 bg-white/[0.035] p-6 shadow-glow backdrop-blur ${className}`}
+    >
       {children}
-    </article>
+    </Spotlight>
   );
 }
 

@@ -18,11 +18,9 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  background:
-    radial-gradient(circle at top left, rgba(14, 165, 233, 0.14), transparent 28rem),
-    radial-gradient(circle at top right, rgba(99, 102, 241, 0.12), transparent 30rem),
-    #050814;
+  background: #050814;
   color: #e2e8f0;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -35,7 +33,111 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Scroll-reveal: sections fade and rise into view once */
+/* ---------- Aurora background (fixed, behind everything) ---------- */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora::after {
+  /* film-grain noise so gradients don't band */
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+/* ---------- Gradient text ---------- */
+.gradient-text {
+  background: linear-gradient(100deg, #22d3ee 0%, #818cf8 45%, #e879f9 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Cursor spotlight cards ---------- */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    420px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(56, 189, 248, 0.12),
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Gradient border shell ---------- */
+.gradient-border {
+  position: relative;
+  background:
+    linear-gradient(#0a1020, #0a1020) padding-box,
+    linear-gradient(135deg, rgba(34, 211, 238, 0.55), rgba(129, 140, 248, 0.4), rgba(232, 121, 249, 0.35)) border-box;
+  border: 1px solid transparent;
+}
+
+/* ---------- Marquee ---------- */
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+
+.marquee-mask:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------- Typing caret ---------- */
+@keyframes caret-blink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.12em;
+  background: #22d3ee;
+  animation: caret-blink 1s step-end infinite;
+}
+
+/* ---------- Scroll-reveal ---------- */
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -51,7 +153,11 @@ button {
   transition-delay: 0.12s;
 }
 
-/* Hero entrance: plays once on page load */
+.reveal-delay-2.is-visible {
+  transition-delay: 0.22s;
+}
+
+/* ---------- Hero entrance ---------- */
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -67,6 +173,18 @@ button {
   animation: fade-up 0.7s ease both;
 }
 
+/* ---------- Scroll-down indicator ---------- */
+@keyframes scroll-dot {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+.scroll-dot {
+  animation: scroll-dot 1.8s ease-in-out infinite;
+}
+
+/* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -78,5 +196,17 @@ button {
     transform: none;
     transition: none;
     animation: none;
+  }
+
+  .aurora-blob,
+  .marquee-track,
+  .caret,
+  .scroll-dot,
+  .animate-aurora-1,
+  .animate-aurora-2,
+  .animate-aurora-3,
+  .animate-float,
+  .animate-spin-slow {
+    animation: none !important;
   }
 }

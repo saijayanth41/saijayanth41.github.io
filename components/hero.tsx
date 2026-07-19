@@ -1,60 +1,53 @@
-import { Cloud, Code2, RefreshCw, ServerCog } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
 import { ArrowIcon, ExternalIcon } from "@/components/ui";
+import { Terminal } from "@/components/terminal";
+import { Typewriter } from "@/components/typewriter";
 
 const heroLinks = [
   { label: "GitHub", href: profile.github },
   { label: "LinkedIn", href: profile.linkedin },
-  { label: "Email", href: `mailto:${profile.email}` },
+  { label: "Email", href: `mailto:${profile.email}` }
 ];
 
-const engineeringCards = [
-  {
-    title: "Backend Engineering",
-    icon: ServerCog,
-    items: [".NET Core", "REST APIs", "SQL Server"],
-  },
-  {
-    title: "Cloud Infrastructure",
-    icon: Cloud,
-    items: ["AWS", "Azure", "Terraform", "Kubernetes"],
-  },
-  {
-    title: "Production Engineering",
-    icon: RefreshCw,
-    items: ["CI/CD", "RCA", "SLA Support", "Monitoring"],
-  },
+const roles = [
+  ".NET Backend Engineer",
+  "Cloud Infrastructure Engineer",
+  "DevOps Automation Engineer",
+  "Healthcare Systems Engineer"
 ];
 
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(56,189,248,0.18),transparent_30rem),radial-gradient(circle_at_82%_8%,rgba(99,102,241,0.15),transparent_28rem)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.045)_1px,transparent_1px)] bg-[size:44px_44px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.045)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_35%,black,transparent)]" />
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink-950 to-transparent" />
 
-      <div className="relative mx-auto grid min-h-[calc(100vh-4rem)] w-full max-w-6xl items-center gap-12 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.04fr_0.96fr]">
+      <div className="relative mx-auto grid min-h-[calc(100vh-4rem)] w-full max-w-6xl items-center gap-14 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
           <div className="animate-fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1.5 font-mono text-xs text-cyan-100 shadow-[0_0_28px_rgba(34,211,238,0.08)]">
             <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan-300" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
             </span>
-            Backend systems · Cloud infrastructure · Production support
+            Open to backend · cloud · DevOps roles
           </div>
 
           <h1
             className="animate-fade-up max-w-4xl font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl"
             style={{ animationDelay: "0.08s" }}
           >
-            {profile.name}
+            Sai Jayanth
+            <span className="block gradient-text pb-2">Rajamahendram</span>
           </h1>
+
           <p
-            className="animate-fade-up mt-5 max-w-2xl text-xl font-medium leading-8 text-cyan-100"
+            className="animate-fade-up mt-5 font-mono text-lg sm:text-xl"
             style={{ animationDelay: "0.16s" }}
           >
-            {profile.title}
+            <span className="text-slate-500">{"// "}</span>
+            <Typewriter phrases={roles} />
           </p>
+
           <p
             className="animate-fade-up mt-5 max-w-2xl text-lg leading-8 text-slate-300"
             style={{ animationDelay: "0.24s" }}
@@ -65,7 +58,7 @@ export function Hero() {
           <div className="animate-fade-up mt-8 flex flex-wrap gap-3" style={{ animationDelay: "0.32s" }}>
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink-950 transition duration-200 hover:-translate-y-0.5 hover:bg-cyan-100"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400 px-5 py-3 text-sm font-semibold text-ink-950 transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_40px_rgba(34,211,238,0.35)]"
             >
               View Projects
               <ArrowIcon />
@@ -101,48 +94,16 @@ export function Hero() {
         </div>
 
         <div className="animate-fade-up relative" style={{ animationDelay: "0.3s" }}>
-          <div className="absolute -inset-6 rounded-[2rem] bg-cyan-400/10 blur-3xl" />
-          <div className="relative grid gap-4">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 shadow-glow backdrop-blur-xl">
-              <div className="flex items-center gap-3 text-slate-300">
-                <Code2 className="h-5 w-5 text-cyan-300" />
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">
-                  Production stack
-                </p>
-              </div>
-              <p className="mt-4 font-display text-2xl font-semibold leading-tight text-white">
-                Backend systems, cloud infrastructure, and DevOps automation built for production environments.
-              </p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-              {engineeringCards.map((card) => {
-                const Icon = card.icon;
-
-                return (
-                  <div
-                    key={card.title}
-                    className="group rounded-2xl border border-white/10 bg-ink-900/70 p-4 shadow-[0_18px_55px_rgba(0,0,0,0.25)] backdrop-blur transition duration-200 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.055]"
-                  >
-                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-200">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h2 className="font-display text-base font-semibold text-white">
-                      {card.title}
-                    </h2>
-                    <ul className="mt-3 space-y-2">
-                      {card.items.map((item) => (
-                        <li key={item} className="flex items-center gap-2 text-sm text-slate-400">
-                          <span className="h-1 w-1 rounded-full bg-cyan-300/80" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-br from-cyan-400/15 via-indigo-400/10 to-fuchsia-400/10 blur-3xl" />
+          <div className="animate-float relative">
+            <Terminal />
           </div>
+        </div>
+      </div>
+
+      <div className="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 lg:block" aria-hidden="true">
+        <div className="flex h-9 w-5 items-start justify-center rounded-full border border-slate-700 p-1.5">
+          <div className="scroll-dot h-1.5 w-1.5 rounded-full bg-cyan-300" />
         </div>
       </div>
     </section>
