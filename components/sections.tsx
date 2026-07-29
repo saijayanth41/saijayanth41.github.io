@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "motion/react";
 import type { IconType } from "react-icons";
 import {
   Award,
@@ -43,6 +46,8 @@ import {
 import { Card, ExternalIcon, Section, Tag } from "@/components/ui";
 import { Spotlight } from "@/components/spotlight";
 import { Stats } from "@/components/stats";
+import { RevealGroup, RevealItem } from "@/components/reveal";
+import { springSnappy } from "@/lib/motion";
 
 const categoryIcons = {
   Backend: ServerCog,
@@ -120,13 +125,28 @@ export function ExperienceSection() {
       title="Enterprise healthcare systems and production support."
       description="Hands-on backend engineering, release support, SQL tuning, API integration, and incident resolution in environments where uptime and data correctness matter."
     >
-      <div className="relative space-y-5 before:absolute before:left-4 before:top-4 before:hidden before:h-[calc(100%-2rem)] before:w-px before:bg-gradient-to-b before:from-cyan-400/40 before:via-indigo-400/30 before:to-transparent md:before:block">
+      <RevealGroup className="relative space-y-5" stagger={0.16}>
+        <motion.span
+          aria-hidden="true"
+          className="absolute left-4 top-4 hidden h-[calc(100%-2rem)] w-px origin-top bg-gradient-to-b from-cyan-400/40 via-indigo-400/30 to-transparent md:block"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+        />
         {experience.map((item) => (
-          <article key={item.company} className="relative md:pl-12">
-            <span className="absolute left-[5px] top-7 hidden h-5 w-5 items-center justify-center rounded-full border border-cyan-300/40 bg-ink-950 shadow-[0_0_20px_rgba(34,211,238,0.3)] md:flex">
+          <RevealItem key={item.company} className="relative md:pl-12">
+            <motion.span
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={springSnappy}
+              className="absolute left-[5px] top-7 hidden h-5 w-5 items-center justify-center rounded-full border border-cyan-300/40 bg-ink-950 shadow-[0_0_20px_rgba(34,211,238,0.3)] md:flex"
+            >
               <span className="h-2 w-2 rounded-full bg-gradient-to-br from-cyan-300 to-indigo-400" />
-            </span>
-            <Card className="transition duration-200 hover:-translate-y-0.5 hover:border-cyan-400/25">
+            </motion.span>
+            <motion.div whileHover={{ y: -4 }} transition={springSnappy}>
+            <Card className="hover:border-cyan-400/25">
               <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
                 <div className="flex gap-4">
                   <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/20 to-indigo-400/20 font-display text-base font-bold text-cyan-200 ring-1 ring-cyan-400/25">
@@ -161,9 +181,10 @@ export function ExperienceSection() {
                 ))}
               </ul>
             </Card>
-          </article>
+            </motion.div>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
     </Section>
   );
 }
@@ -180,20 +201,23 @@ export function ProjectsSection() {
       title="Production-style projects across automation, infrastructure, and healthcare AI."
       description="Each project focuses on a real engineering surface: provisioning infrastructure, moving alerts into workflows, exposing APIs, streaming data, or automating deployment."
     >
-      <div className="grid gap-5 lg:grid-cols-3">
+      <RevealGroup className="grid gap-5 lg:grid-cols-3" stagger={0.12}>
         {featured.map((project, i) => (
-          <ProjectCard key={project.name} project={project} accent={projectAccents[i % projectAccents.length]} featured />
+          <RevealItem key={project.name}>
+            <ProjectCard project={project} accent={projectAccents[i % projectAccents.length]} featured />
+          </RevealItem>
         ))}
-      </div>
-      <div className="mt-5 grid gap-5 md:grid-cols-2">
+      </RevealGroup>
+      <RevealGroup className="mt-5 grid gap-5 md:grid-cols-2" stagger={0.1}>
         {supporting.map((project, i) => (
-          <ProjectCard
-            key={project.name}
-            project={project}
-            accent={projectAccents[(i + featured.length) % projectAccents.length]}
-          />
+          <RevealItem key={project.name}>
+            <ProjectCard
+              project={project}
+              accent={projectAccents[(i + featured.length) % projectAccents.length]}
+            />
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
     </Section>
   );
 }
@@ -284,15 +308,15 @@ export function SkillsSection() {
       eyebrow="Skills"
       title="Backend-first stack with practical cloud and DevOps coverage."
     >
-      <div className="grid gap-5 md:grid-cols-2">
+      <RevealGroup className="grid gap-5 md:grid-cols-2" stagger={0.1}>
         {skills.map((skillGroup) => {
           const CategoryIcon = categoryIcons[skillGroup.group as keyof typeof categoryIcons] ?? Code2;
 
           return (
+            <RevealItem key={skillGroup.group}>
             <Spotlight
               as="article"
-              key={skillGroup.group}
-              className="rounded-2xl bg-white/[0.03] p-5 ring-1 ring-white/10 transition duration-200 hover:-translate-y-0.5 hover:bg-white/[0.045] hover:ring-cyan-400/25"
+              className="rounded-2xl bg-white/[0.03] p-5 ring-1 ring-white/10 hover:bg-white/[0.045] hover:ring-cyan-400/25"
             >
               <div className="mb-5 flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/20 to-indigo-400/20 text-cyan-200 ring-1 ring-cyan-400/25">
@@ -316,9 +340,10 @@ export function SkillsSection() {
                 })}
               </div>
             </Spotlight>
+            </RevealItem>
           );
         })}
-      </div>
+      </RevealGroup>
     </Section>
   );
 }

@@ -1,38 +1,67 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
+import type { ReactNode } from "react";
+import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
-export function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.classList.add("is-visible");
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+export function Reveal({
+  children,
+  className = "",
+  delay = 0,
+  variants = fadeUp
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  variants?: Variants;
+}) {
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+      variants={shouldReduceMotion ? { hidden: { opacity: 1 }, visible: { opacity: 1 } } : variants}
+      transition={{ delay }}
+    >
       {children}
-    </div>
+    </motion.div>
+  );
+}
+
+/** Wraps children so each direct motion child staggers in on scroll. */
+export function RevealGroup({
+  children,
+  className = "",
+  stagger = 0.09,
+  delayChildren = 0
+}: {
+  children: ReactNode;
+  className?: string;
+  stagger?: number;
+  delayChildren?: number;
+}) {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+      variants={shouldReduceMotion ? undefined : staggerContainer(stagger, delayChildren)}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function RevealItem({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return (
+    <motion.div className={className} variants={fadeUp}>
+      {children}
+    </motion.div>
   );
 }

@@ -1,6 +1,10 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { motion } from "motion/react";
 import { Reveal } from "@/components/reveal";
 import { Spotlight } from "@/components/spotlight";
+import { springSnappy } from "@/lib/motion";
 
 type SectionProps = {
   id: string;
@@ -26,7 +30,7 @@ export function Section({ id, index, eyebrow, title, description, children }: Se
             {description ? <p className="mt-4 text-base leading-8 text-slate-400">{description}</p> : null}
           </div>
         </Reveal>
-        <Reveal className="reveal-delay-1">{children}</Reveal>
+        <Reveal delay={0.1}>{children}</Reveal>
       </div>
     </section>
   );
@@ -34,9 +38,13 @@ export function Section({ id, index, eyebrow, title, description, children }: Se
 
 export function Tag({ children }: { children: ReactNode }) {
   return (
-    <span className="rounded-full border border-slate-800 bg-ink-950/65 px-3 py-1 text-xs font-medium text-slate-300 transition hover:border-cyan-400/40 hover:text-cyan-200">
+    <motion.span
+      whileHover={{ y: -2, scale: 1.04 }}
+      transition={springSnappy}
+      className="rounded-full border border-slate-800 bg-ink-950/65 px-3 py-1 text-xs font-medium text-slate-300 transition-colors hover:border-cyan-400/40 hover:text-cyan-200"
+    >
       {children}
-    </span>
+    </motion.span>
   );
 }
 
