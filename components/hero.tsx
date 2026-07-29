@@ -1,11 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion, useMotionValue, useScroll, useTransform, useSpring } from "motion/react";
 import { profile } from "@/lib/portfolio-data";
 import { ArrowIcon, ExternalIcon } from "@/components/ui";
 import { Terminal } from "@/components/terminal";
 import { Typewriter } from "@/components/typewriter";
 import { fadeUp, springSnappy, staggerContainer } from "@/lib/motion";
+
+const HeroScene = dynamic(() => import("@/components/hero-scene").then((mod) => mod.HeroScene), {
+  ssr: false
+});
 
 const heroLinks = [
   { label: "GitHub", href: profile.github },
@@ -142,6 +147,9 @@ export function Hero() {
           className="relative"
         >
           <div className="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-br from-cyan-400/15 via-indigo-400/10 to-fuchsia-400/10 blur-3xl" />
+          <div className="absolute -inset-16 hidden sm:block">
+            <HeroScene />
+          </div>
           <div className="animate-float relative">
             <Terminal />
           </div>

@@ -32,9 +32,14 @@ const config: Config = {
         "aurora-3": "aurora-3 38s ease-in-out infinite alternate",
         marquee: "marquee 36s linear infinite",
         float: "float 7s ease-in-out infinite",
-        "spin-slow": "spin 24s linear infinite"
+        "spin-slow": "spin 24s linear infinite",
+        "orbit-spin": "orbit-spin 22s linear infinite"
       },
       keyframes: {
+        "orbit-spin": {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(360deg)" }
+        },
         "aurora-1": {
           "0%": { transform: "translate(-8%, -6%) scale(1)" },
           "100%": { transform: "translate(14%, 10%) scale(1.25)" }

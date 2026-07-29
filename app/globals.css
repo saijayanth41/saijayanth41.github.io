@@ -206,7 +206,8 @@ button {
   .animate-aurora-2,
   .animate-aurora-3,
   .animate-float,
-  .animate-spin-slow {
+  .animate-spin-slow,
+  .animate-orbit-spin {
     animation: none !important;
   }
 }
